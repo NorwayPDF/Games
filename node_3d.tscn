@@ -1,0 +1,383 @@
+[gd_scene load_steps=36 format=3 uid="uid://f80fgypwsw75"]
+
+[ext_resource type="Script" uid="uid://51a113l75nyo" path="res://scripts/balls.gd" id="1_d7w74"]
+[ext_resource type="PackedScene" uid="uid://dwxeksquj1xe8" path="res://assets/Black_ball.blend" id="2_0814m"]
+[ext_resource type="PackedScene" uid="uid://dctaekqrh41vx" path="res://assets/blue_ball.blend" id="3_yagcb"]
+[ext_resource type="PackedScene" uid="uid://ob0bgflf633j" path="res://assets/blue_striped.blend" id="4_bnfrd"]
+[ext_resource type="PackedScene" uid="uid://bbjmu1ms0cmp7" path="res://assets/darkred_ball.blend" id="5_05pwu"]
+[ext_resource type="PackedScene" uid="uid://d1uq547r3h58g" path="res://assets/darkred_striped.blend" id="6_lr7et"]
+[ext_resource type="PackedScene" uid="uid://bvwg3aa7caew5" path="res://assets/green_ball.blend" id="7_pyrfw"]
+[ext_resource type="PackedScene" uid="uid://dx1gwdtx1tudp" path="res://assets/green_striped.blend" id="8_oliio"]
+[ext_resource type="PackedScene" uid="uid://cadkcbix0jxyp" path="res://assets/orange_ball.blend" id="9_7sl08"]
+[ext_resource type="PackedScene" uid="uid://i33et5vae0q1" path="res://assets/orange_striped.blend" id="10_r06vm"]
+[ext_resource type="PackedScene" uid="uid://bd6sm1goxpg20" path="res://assets/purple_ball.blend" id="11_sq23n"]
+[ext_resource type="PackedScene" uid="uid://dpgubht1n6o0q" path="res://assets/purple_striped.blend" id="12_n5nrx"]
+[ext_resource type="PackedScene" uid="uid://ce67lvo41ul6x" path="res://assets/red_ball.blend" id="13_xip8t"]
+[ext_resource type="PackedScene" uid="uid://cap0w7eaku7cc" path="res://assets/red_striped.blend" id="14_mds1h"]
+[ext_resource type="PackedScene" uid="uid://bvbkhrsyro74" path="res://assets/yellow_ball.blend" id="15_dl4ih"]
+[ext_resource type="PackedScene" uid="uid://b67r7aulxu6x4" path="res://assets/yellow_striped.blend" id="16_h0k7y"]
+[ext_resource type="PackedScene" uid="uid://ddffllcny01ij" path="res://assets/cue_ball.blend" id="17_o0lcr"]
+[ext_resource type="PackedScene" uid="uid://8uj6bpvamlot" path="res://assets/pool_table.blend" id="18_0am6y"]
+[ext_resource type="Script" uid="uid://bba6oav65o8gh" path="res://scripts/cue.gd" id="19_f7cgs"]
+[ext_resource type="PackedScene" uid="uid://b7eivikgw0can" path="res://assets/cue.blend" id="20_38qtx"]
+[ext_resource type="Script" uid="uid://dxak5ot1s8enn" path="res://scripts/pockets.gd" id="21_7txqa"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_noarx"]
+bounce = 0.31
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_noarx"]
+radius = 0.033561263
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r3fl7"]
+radius = 0.032043014
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a0tk4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wc5p8"]
+size = Vector3(0.10637665, 0.67633057, 2.2743769)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jsk3o"]
+size = Vector3(0.12657166, 0.67633057, 2.4481812)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i5arm"]
+size = Vector3(0.10637665, 0.67633057, 2.2655716)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
+size = Vector3(2.9385986, 0.5480957, 5.307251)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r3fl7"]
+size = Vector3(0.14056396, 0.8781128, 2.461914)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jka67"]
+size = Vector3(0.12657166, 0.67633057, 2.461792)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4arys"]
+size = Vector3(0.12657166, 0.67633057, 2.461792)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a0tk4"]
+height = 1.5083008
+radius = 0.05419922
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsnrv"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+metallic_specular = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_lggff"]
+material = SubResource("StandardMaterial3D_jsnrv")
+size = Vector3(20, 0, 20)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Balls" type="Node3D" parent="."]
+script = ExtResource("1_d7w74")
+
+[node name="Black_ball" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032160878, -0.12609224, -0.6733439)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="Black_ball" parent="Balls/Black_ball" instance=ExtResource("2_0814m")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Black_ball"]
+shape = SubResource("SphereShape3D_noarx")
+
+[node name="Blue_ball" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024606625, -0.11770193, -0.73541325)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="blue_ball" parent="Balls/Blue_ball" instance=ExtResource("3_yagcb")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Blue_ball"]
+shape = SubResource("SphereShape3D_r3fl7")
+
+[node name="Blue_striped" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03608224, -0.11369011, -0.7411653)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Blue_striped"]
+shape = SubResource("SphereShape3D_r3fl7")
+
+[node name="blue_striped" parent="Balls/Blue_striped" instance=ExtResource("4_bnfrd")]
+
+[node name="Darkred_ball" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07078375, -0.12614244, -0.78660196)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Darkred_ball"]
+shape = SubResource("SphereShape3D_r3fl7")
+
+[node name="darkred_ball" parent="Balls/Darkred_ball" instance=ExtResource("5_05pwu")]
+
+[node name="Darkred_striped" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006662011, -0.12197296, -0.78902775)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Darkred_striped"]
+shape = SubResource("SphereShape3D_r3fl7")
+
+[node name="darkred_striped" parent="Balls/Darkred_striped" instance=ExtResource("6_lr7et")]
+
+[node name="Green_ball" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04959695, -0.121258155, -0.7841301)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Green_ball"]
+shape = SubResource("SphereShape3D_r3fl7")
+
+[node name="green_ball" parent="Balls/Green_ball" instance=ExtResource("7_pyrfw")]
+
+[node name="Green_striped" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03801015, -0.12667789, -0.83334494)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Green_striped"]
+shape = SubResource("SphereShape3D_r3fl7")
+
+[node name="green_striped" parent="Balls/Green_striped" instance=ExtResource("8_oliio")]
+
+[node name="Orange_ball" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022788733, -0.12382504, -0.84147525)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Orange_ball"]
+shape = SubResource("SphereShape3D_r3fl7")
+
+[node name="orange_ball" parent="Balls/Orange_ball" instance=ExtResource("9_7sl08")]
+
+[node name="Orange_striped" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.098175794, -0.11954588, -0.8423921)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Orange_striped"]
+shape = SubResource("SphereShape3D_r3fl7")
+
+[node name="orange_striped" parent="Balls/Orange_striped" instance=ExtResource("10_r06vm")]
+
+[node name="Purple_ball" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07666085, -0.112831384, -0.84613645)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Purple_ball"]
+shape = SubResource("SphereShape3D_r3fl7")
+
+[node name="purple_ball" parent="Balls/Purple_ball" instance=ExtResource("11_sq23n")]
+
+[node name="Purple_striped" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06501867, -0.113560736, -0.8914162)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Purple_striped"]
+shape = SubResource("SphereShape3D_r3fl7")
+
+[node name="purple_striped" parent="Balls/Purple_striped" instance=ExtResource("12_n5nrx")]
+
+[node name="Red_ball" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0025880188, -0.11197972, -0.89407444)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Red_ball"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002097331, 0, 0)
+shape = SubResource("SphereShape3D_r3fl7")
+
+[node name="red_ball" parent="Balls/Red_ball" instance=ExtResource("13_xip8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020752102, 0, 0)
+
+[node name="Red_striped" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.056058623, -0.115836814, -0.8979149)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Red_striped"]
+shape = SubResource("SphereShape3D_r3fl7")
+
+[node name="red_striped" parent="Balls/Red_striped" instance=ExtResource("14_mds1h")]
+
+[node name="Yellow_ball" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12708053, -0.112722546, -0.89562756)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Yellow_ball"]
+shape = SubResource("SphereShape3D_r3fl7")
+
+[node name="yellow_ball" parent="Balls/Yellow_ball" instance=ExtResource("15_dl4ih")]
+
+[node name="Yellow_striped" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11189194, -0.12074828, -0.89034325)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Yellow_striped"]
+shape = SubResource("SphereShape3D_r3fl7")
+
+[node name="yellow_striped" parent="Balls/Yellow_striped" instance=ExtResource("16_h0k7y")]
+
+[node name="Cue_ball" type="RigidBody3D" parent="Balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3201849)
+collision_mask = 3
+mass = 0.17
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+linear_damp = 0.6
+angular_damp = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balls/Cue_ball"]
+shape = SubResource("SphereShape3D_noarx")
+
+[node name="cue_ball" parent="Balls/Cue_ball" instance=ExtResource("17_o0lcr")]
+
+[node name="Table" type="StaticBody3D" parent="."]
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_a0tk4")
+
+[node name="pool_table" parent="Table" instance=ExtResource("18_0am6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.36770615, 0)
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Table"]
+transform = Transform3D(0.01408431, 0, 0.99990076, 0, 1, 0, -0.99990076, 0, 0.01408431, -0.014788945, 0.18758541, -2.671285)
+shape = SubResource("BoxShape3D_wc5p8")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2675745, 0.18684328, -1.289524)
+shape = SubResource("BoxShape3D_jsk3o")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Table"]
+transform = Transform3D(0.0062133446, 0, 0.9999807, 0, 1, 0, -0.9999807, 0, 0.0062133446, -0.00089895725, 0.20064744, 2.658407)
+shape = SubResource("BoxShape3D_i5arm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023986816, -0.42007166, 0.02178955)
+shape = SubResource("BoxShape3D_a0tk4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2779844, 0.11248994, -1.2936456)
+shape = SubResource("BoxShape3D_r3fl7")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2709143, 0.22263002, 1.2958579)
+shape = SubResource("BoxShape3D_jka67")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2753477, 0.22263002, 1.2958579)
+shape = SubResource("BoxShape3D_4arys")
+
+[node name="Cue" type="Node3D" parent="."]
+script = ExtResource("19_f7cgs")
+Cue_ball = NodePath("../Balls/Cue_ball")
+
+[node name="cue" parent="Cue" instance=ExtResource("20_38qtx")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0.04620324, 0)
+
+[node name="Pockets" type="Area3D" parent="."]
+script = ExtResource("21_7txqa")
+
+[node name="Area3D2" type="Area3D" parent="Pockets"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pockets/Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2135817, -0.24584961, 0.00035978854)
+shape = SubResource("CylinderShape3D_a0tk4")
+
+[node name="Area3D" type="Area3D" parent="Pockets"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pockets/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2041991, -0.24584961, 2.596132)
+shape = SubResource("CylinderShape3D_a0tk4")
+
+[node name="Area3D3" type="Area3D" parent="Pockets"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pockets/Area3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.204327, -0.24584961, 2.607123)
+shape = SubResource("CylinderShape3D_a0tk4")
+
+[node name="Area3D4" type="Area3D" parent="Pockets"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pockets/Area3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2008137, -0.24584961, 0.00035978854)
+shape = SubResource("CylinderShape3D_a0tk4")
+
+[node name="Area3D5" type="Area3D" parent="Pockets"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pockets/Area3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2135817, -0.24584961, -2.6050696)
+shape = SubResource("CylinderShape3D_a0tk4")
+
+[node name="Area3D6" type="Area3D" parent="Pockets"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pockets/Area3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2092179, -0.24584961, -2.5949085)
+shape = SubResource("CylinderShape3D_a0tk4")
+
+[node name="CameraRig" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(0.0015882421, -0.99996525, -0.008185447, -3.4347684e-11, -0.008185459, 0.99996656, -0.99999887, -0.001588189, -1.3000543e-05, 0, 2.0778427, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.9284419, -0.051631443, -0.36787224, 0.3007236, 0.68584085, 0.6627124, 0.21808507, -0.7259179, 0.6522901, -2.4729207, 2.7792933, 5.3926444)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12105179, -0.65532255, 0.027497321)
+mesh = SubResource("BoxMesh_lggff")
